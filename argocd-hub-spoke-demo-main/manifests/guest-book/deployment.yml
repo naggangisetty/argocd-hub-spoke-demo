@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: guestbook-ui
+  name: nginx-ui
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: guestbook-ui
+      app: nginx
   template:
     metadata:
       labels:
-        app: guestbook-ui
+        app: nginx
     spec:
       containers:
-      - image: docker.io/bitnami/guestbook:latest
-        name: guestbook-ui
+      - image: nginx:stable
+        name: nginx
         ports:
         - containerPort: 80
